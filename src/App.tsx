@@ -10,8 +10,11 @@ import OptionalProps from './components/OptionalProps'
 import ButtonHandler from './components/ButtonHandler'
 import InputHandler from './components/InputHandler'
 import Styling from './components/Styling'
-import UseState from './state/UseState';
-import FutureUseState from './state/FutureUseState';
+import UseState from './state/UseState'
+import FutureUseState from './state/FutureUseState'
+import AssertiveFutureUseState from './state/AssertiveFutureUseState'
+import { ThemeContextProvider } from './components/context/ThemeContext'
+import { Box } from './components/context/Box'
 
 
 
@@ -52,6 +55,12 @@ function App() {
 
   return (
     <div className="App">
+      <ThemeContextProvider>
+        <Box />
+      </ThemeContextProvider>
+      <hr/>
+      <AssertiveFutureUseState accountUser={user}/>
+      <hr/>
       <FutureUseState accountUser={user}/>
       <hr/>
       <UseState />
